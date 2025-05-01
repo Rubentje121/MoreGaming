@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoekresultaten - Gaming Accessoires</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script> <!-- Voeg Fuse.js toe -->
+</head>
+<body>
+    <header>
+        <h1>Gaming Accessoires</h1>
+        <!-- Zoekbalk bovenaan de zoekpagina -->
+        <form action="search.html" method="get" class="search-form">
+            <input type="text" name="search" placeholder="Zoek naar producten..." class="search-input" id="search-input">
+            <button type="submit" class="search-button">Zoeken</button>
+        </form>
+    </header>
+
+    <main>
+        <div class="search-results">
+            <h2>Zoekresultaten voor: "<span id="search-query"></span>"</h2>
+
+            <div class="products" id="product-list">
+                <!-- Dynamisch ingevulde producten komen hier -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 More Gaming. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Haal de zoekterm op uit de URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchQuery = urlParams.get('search');
+        document.getElementById('search-query').textContent = searchQuery || 'geen zoekopdracht ingevoerd';
+
+        // Maak een array van producten (100 producten toevoegen of verder uitbreiden)
+        const products = [
+            { name: 'Gaming Headset', price: '€79.99', image: 'gaming-headset.jpg' },
+            { name: 'Gaming Mouse', price: '€49.99', image: 'gaming-mouse.jpg' },
+            { name: 'Gaming Keyboard', price: '€89.99', image: 'gaming-keyboard.jpg' },
+            { name: 'Wireless Controller', price: '€59.99', image: 'wireless-controller.jpg' },
+            { name: 'RGB Mouse Pad', price: '€19.99', image: 'rgb-mousepad.jpg' },
+            { name: 'Gaming Chair', price: '€199.99', image: 'gaming-chair.jpg' },
+            { name: 'Gaming Monitor', price: '€299.99', image: 'gaming-monitor.jpg' },
+            // Voeg meer producten toe tot 100 (of meer) indien nodig
+        ];
+
+        // Configureer Fuse.js voor fuzzy search
+        const options = {
+            includeScore: true,    // Dit houdt de score van elke match bij
+            threshold: 0.3,       // Hoe "fuzzy" de zoekterm moet zijn, een lagere waarde betekent strengere resultaten
+            keys: ['name']        // Zoek alleen op de 'name' van producten
+        };
+
+        // Maak een nieuwe Fuse instantie aan
+        const fuse = new Fuse(products, options);
+
+        // Zoek op basis van de zoekterm
+        const result = fuse.search(searchQuery || ''); // Als er geen zoekterm is, zoek dan naar alles
+
+        // Haal de product lijst op
+        const productList = document.getElementById('product-list');
+        productList.innerHTML = ''; // Maak de lijst leeg voor nieuwe resultaten
+
+        // Als er resultaten zijn, toon ze
+        if (result.length > 0) {
+            result.forEach(item => {
+                const product = item.item; // Haal het product op uit de zoekresultaten
+                const productDiv = document.createElement('div');
+                productDiv.classList.add('product');
+                productDiv.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <p><strong>${product.name}</strong> - ${product.price}</p>
+                `;
+                productList.appendChild(productDiv);
+            });
+        } else {
+            const noResults = document.createElement('p');
+            noResults.textContent = 'Geen producten gevonden die overeenkomen met je zoekopdracht.';
+            productList.appendChild(noResults);
+        }
+    </script>
+</body>
+</html>

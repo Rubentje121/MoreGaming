@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header met terug-knop -->
+    <header>
+        <a href="index.html" class="back-button">Back to Home</a>
+    </header>
+
+    <main>
+        <h2>Give Your Feedback</h2>
+        <p>We would love to hear your thoughts!</p>
+
+        <!-- Feedback Form -->
+        <form action="https://formspree.io/f/mnndjlaq" method="POST" class="feedback-form">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="feedback">Your Feedback</label>
+                <textarea id="feedback" name="feedback" rows="5" placeholder="Enter your feedback" required></textarea>
+            </div>
+            <button type="submit" class="submit-button">Submit Feedback</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 More Gaming. All rights reserved.</p>
+    </footer>
+</body>
+</html>
