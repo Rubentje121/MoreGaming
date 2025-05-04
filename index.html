@@ -93,6 +93,23 @@
   <input type="email" name="email" placeholder="Jouw e-mailadres" required>
   <button type="submit">Bestellen</button>
 </form>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("YOUR_USER_ID"); // Vervang met jouw user ID
+  })();
+
+  document.getElementById('order-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+      .then(function() {
+        alert('Bestelling verstuurd! Check je e-mail.');
+      }, function(error) {
+        alert('Er is iets misgegaan: ' + JSON.stringify(error));
+      });
+  });
+</script>
 
     <script src="script.js"></script>
 </body>
