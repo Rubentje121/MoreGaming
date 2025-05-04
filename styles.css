@@ -147,4 +147,17 @@ footer {
 .feedback-button:hover {
     background-color: #c0392b;
 }
+.buy-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.buy-button:hover {
+    background-color: #218838;
+}
        
