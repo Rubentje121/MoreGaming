@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bestelling Plaatsen</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h2>Bestel je product</h2>
+  <form action="bedankt.html" method="GET">
+    <label for="product">Product:</label>
+    <input type="text" id="product" name="product" readonly><br><br>
+
+    <label for="name">Naam:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="address">Adres:</label>
+    <input type="text" id="address" name="address" required><br><br>
+
+    <label for="payment">Betaalmethode:</label>
+    <select id="payment" name="payment" required>
+      <option value="ideal">iDEAL</option>
+      <option value="paypal">PayPal</option>
+      <option value="creditcard">Creditcard</option>
+    </select><br><br>
+
+    <button type="submit">Plaats Bestelling</button>
+  </form>
+
+  <script>
+    // Haal productnaam uit URL (bijv. ?product=Fortnite%20Gaming%20Headset)
+    const urlParams = new URLSearchParams(window.location.search);
+    const product = urlParams.get('product');
+    if (product) {
+      document.getElementById("product").value = decodeURIComponent(product);
+    }
+  </script>
+</body>
+</html>
