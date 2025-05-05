@@ -88,29 +88,19 @@
     <footer>
         <p>&copy; 2025 More Gaming. All rights reserved.</p>
     </footer>
-    <form id="order-form">
-  <input type="text" name="name" placeholder="More gaming" required>
-  <input type="email" name="email" placeholder="RUbenlesterhuis6@gamil.com" required>
-  <button type="submit">Bestellen</button>
-</form>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  (function(){
-    emailjs.init("YOUR_USER_ID"); // Vervang met jouw user ID
-  })();
-
-  document.getElementById('order-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
-      .then(function() {
-        alert('Bestelling verstuurd! Check je e-mail.');
-      }, function(error) {
-        alert('Er is iets misgegaan: ' + JSON.stringify(error));
-      });
-  });
-</script>
-
+   
     <script src="script.js"></script>
+    <section class="order-section">
+  <h2>Bestel nu!</h2>
+  <form action="https://formsubmit.co/rubenlesterhuis6@gmail.com" method="POST">
+    <input type="hidden" name="_next" value="https://rubentje121.github.io/MoreGaming/bedankt.html">
+    <input type="text" name="name" placeholder="Jouw naam" required>
+    <input type="email" name="email" placeholder="Jouw e-mailadres" required>
+    <input type="text" name="product" placeholder="Productnaam" required>
+    <textarea name="message" placeholder="Extra informatie (optioneel)"></textarea>
+    <button type="submit">Bestel</button>
+  </form>
+</section>
+
 </body>
 </html>
