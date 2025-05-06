@@ -160,4 +160,12 @@ footer {
 .buy-button:hover {
     background-color: #218838;
 }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('images/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
        
