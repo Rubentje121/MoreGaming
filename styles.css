@@ -244,4 +244,80 @@ body {
     margin-left: 200px;
   }
 }
+/* Contactpagina sectie */
+.contact-section {
+  padding: 4rem 2rem;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.contact-section h1 {
+  margin-bottom: 2rem;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.contact-form, .contact-info {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 5px;
+  width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+}
+
+.contact-form button {
+  margin-top: 1rem;
+  background-color: #28a745;
+  color: #fff;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #218838;
+}
+
+.contact-info h2, .contact-info h3 {
+  margin-top: 0;
+}
+
+.contact-info p {
+  margin: 0.5rem 0;
+}
+
+.contact-info a {
+  color: #333;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
        
