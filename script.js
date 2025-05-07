@@ -96,3 +96,7 @@ window.addEventListener('DOMContentLoaded', () => {
     updateSaleProducts();
     startCountdown();
 });
+function toggleSidebar() {
+  document.querySelector('.sidebar').classList.toggle('open');
+}
+
