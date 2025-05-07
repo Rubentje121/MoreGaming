@@ -320,4 +320,15 @@ body {
 .contact-info a:hover {
   text-decoration: underline;
 }
+.product-list {
+    display: flex;
+    flex-wrap: wrap;        /* Laat producten naar de volgende regel gaan als er geen ruimte is */
+    gap: 20px;              /* Ruimte tussen de producten */
+    justify-content: center; /* Centreert de producten op de pagina */
+}
+@media (max-width: 768px) {
+    .product {
+        width: 100%;  /* Laat ze onder elkaar komen op smalle schermen */
+    }
+}
        
